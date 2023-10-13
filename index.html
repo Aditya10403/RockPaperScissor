@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/f4f2f592f2.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&family=Rubik:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="animation.css">
+  <title>Rock Paper Scissor</title>
+</head>
+
+<body class="bg-slate-700 font-[Poppins]">
+  <section class="w-full">
+    <h1 class="mt-[10%] md:mt-4 text-2xl md:m-4 md:text-4xl text-center text-green-400">Rock Paper Scissors</h1>
+    <div class="flex justify-between my-[20%] md:my-[6%] mx-3 md:mx-auto w-[90%] md:w-[50%]">
+      <h2 class="text-2xl">Player : <span id="player-score">0</span></h2>
+      <h2 class="text-2xl">Computer : <span id="computer-score">0</span></h2>
+    </div>
+    <div class="playIcons m-3 mt-[20%] md:m-auto w-[90%] md:w-[50%] h-[10%] flex justify-between">
+      <img class="w-[8%]" src="icons/Rock.svg" alt="" srcset="">
+      <img class="w-[10%]" src="icons/Paper.svg" alt="" srcset="">
+      <img class="w-[10%]" src="icons/Scissor.svg" alt="" srcset="">
+    </div>
+    <div class="match hidden h-auto justify-between w-[90%] md:w-[50%] m-auto text-center">
+      <h2 class="winner w-full text-3xl font-semibold">Choose an Option</h2>
+      <div class="hands w-[90%] md:w-[50%] flex justify-between text-center m-auto mt-[10%]">
+        <img id="player-hand" class="rotate-45 w-[20%]" src="icons/Rock.svg" alt="">
+        <img id="computer-hand" class="w-[20%] transform -scale-x-100 -rotate-45" src="icons/Rock.svg" alt="">
+      </div>
+    </div>
+    <div class="options hidden grid grid-cols-3 gap-x-3 mx-3 md:m-auto mt-[15%] md:mt-[5%] w-[90%] md:w-[50%] h-auto justify-between">
+      <button class="transform active:translate-x-2 active:translate-y-2 bg-blue-500 py-5 px-4 md:px-9 rounded-xl">Rock</button>
+      <button
+        class="transform active:translate-x-2 active:translate-y-2 bg-blue-500 py-5 px-4 md:px-9 rounded-xl">Paper</button>
+      <button
+        class="transform active:translate-x-2 active:translate-y-2 bg-blue-500 py-5 px-4 md:px-9 rounded-xl">Scissor</button>
+    </div>
+    <div class="mt-[20%] md:mt-[10%] w-full text-center">
+      <button
+        class="playBtn transform active:translate-x-2 active:translate-y-2 bg-green-500 py-5 px-8 rounded-xl">Let's
+        Play</button>
+    </div>
+    <button
+      class="restartBtn hidden -mt-[15%] md:-mt-[10%] transform active:translate-x-2 active:translate-y-2 bg-green-500 py-5 px-8 rounded-xl m-auto">Restart</button>
+    </div>
+  </section>
+  <script src="app.js"></script>
+</body>
+
+
+</html>
