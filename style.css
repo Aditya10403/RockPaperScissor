@@ -769,12 +769,6 @@ video {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-@media (min-width: 640px) {
-  .sm\:grid {
-    display: grid;
-  }
-}
-
 @media (min-width: 768px) {
   .md\:m-4 {
     margin: 1rem;
@@ -808,10 +802,6 @@ video {
 
   .md\:mt-\[5\%\] {
     margin-top: 5%;
-  }
-
-  .md\:hidden {
-    display: none;
   }
 
   .md\:w-\[50\%\] {
