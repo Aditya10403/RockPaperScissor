@@ -1,6 +1,7 @@
 // main play function
 const play = () => {
-  // Buttons Show.
+
+  // buttons Show.
   const startgame = () => {
     let playBtn = document.querySelector(".playBtn");
     let playIcons = document.querySelector(".playIcons");
@@ -27,6 +28,7 @@ const play = () => {
     });
   };
 
+  // all DOM and play 
   const playing = () => {
     let pScore = 0;
     let cScore = 0;
@@ -36,12 +38,14 @@ const play = () => {
     const hands = document.querySelectorAll(".hands img");
     const choices = ["Rock", "Paper", "Scissor"];
 
+    // resetting the animation for next 
     hands.forEach((hand) => {
       hand.addEventListener("animationend", function () {
         this.style.animation = "";
       });
     });
 
+    // option click events
     options.forEach((option) => {
       option.addEventListener("click", function () {
         const computerOptions = Math.floor(Math.random() * 3);
@@ -51,6 +55,7 @@ const play = () => {
         // calling compare with a delay
         setTimeout(() => {
           compare(playerChoice, computerChoice);
+
           // updating img after delay
           playerhand.src = `./icons/${playerChoice}.svg`;
           computerhand.src = `./icons/${computerChoice}.svg`;
@@ -75,9 +80,10 @@ const play = () => {
       computerScore.textContent = cScore;
       if (pScore + cScore == 5) {
         options.style = `pointer-events:none`;
-        limit();
+        limit(); // calling if limit reached and returning to main
       }
     };
+
     // Restarting after a limit
     const limit = () => {
       if (pScore > cScore) {
@@ -157,7 +163,7 @@ const play = () => {
   playing();
 };
 
-// // restarts the game
+// restarts the game
 // on restart btn click
 const restartBtn = document.querySelector(".restartBtn");
 restartBtn.addEventListener("click", () => {
