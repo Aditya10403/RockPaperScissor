@@ -1,4 +1,3 @@
-let restartBtn = document.querySelector(".restartBtn");
 // main play function
 const play = () => {
   // Buttons Show.
@@ -67,7 +66,6 @@ const play = () => {
       cScore = 0;
       document.querySelector("#player-score").textContent = pScore;
       document.querySelector("#computer-score").textContent = cScore;
-      return;
     };
 
     const updateScore = () => {
@@ -76,9 +74,32 @@ const play = () => {
       playerScore.textContent = pScore;
       computerScore.textContent = cScore;
       if (pScore + cScore == 5) {
+        options.style = `pointer-events:none`;
         limit();
-        return;
       }
+    };
+    // Restarting after a limit
+    const limit = () => {
+      if (pScore > cScore) {
+        document.querySelector(".winner").textContent = "Player is the Winner";
+      } else {
+        document.querySelector(".winner").textContent =
+          "Computer is the Winner";
+      }
+      document.querySelector(".winner").style = "color: white";
+      setTimeout(() => {
+        setDefault(); // seting default 0 value
+      }, 2000);
+
+      // changing the restart display
+      restartBtn.style = `
+        display:flex;
+        transition: display 2s ease;
+        `;
+      document.querySelector(".options").style = `
+        display: none;
+        `;
+      return; // calling restart
     };
 
     // game logic
@@ -129,54 +150,28 @@ const play = () => {
         }
       }
     };
-
-    // Restarting after a limit
-    const limit = () => {
-      if (pScore > cScore) {
-        document.querySelector(".winner").textContent = "Player is the Winner";
-      } else {
-        document.querySelector(".winner").textContent =
-          "Computer is the Winner";
-      }
-
-      // changing the restart display
-      restartBtn.style = `
-      display:flex;
-      transition: display 2s ease;
-      `;
-      document.querySelector(".options").style = `
-      display: none;
-      `;
-      restart(); // calling restart
-      setDefault(); // seting default 0 value
-      return;
-    };
-  };
-
-  // restarts the game
-  const restart = () => {
-    // on restart btn click
-    restartBtn.addEventListener("click", () => {
-      document.querySelector(".options").style = `
-      display: flex;
-      transition: display 2s ease;
-      `;
-      restartBtn.style = `
-      display:none;
-      transition: display 2s ease;
-      `;
-      document.querySelector(".winner").textContent = "New Game";
-      setTimeout(() => {
-        playing();
-        return;
-      }, 2000);
-    });
   };
 
   // calling inner functions
   startgame();
   playing();
 };
+
+// // restarts the game
+// on restart btn click
+const restartBtn = document.querySelector(".restartBtn");
+restartBtn.addEventListener("click", () => {
+  document.querySelector(".options").style = `
+    display: flex;
+    transition: display 2s ease;
+    `;
+  restartBtn.style = `
+    display:none;
+    transition: display 2s ease;
+    `;
+  document.querySelector(".winner").textContent = "New Game";
+  document.querySelector(".winner").style = "color:black";
+});
 
 // calling main game function
 play();
